@@ -4,8 +4,6 @@
 // developer => 1500
 // default => 1000
 
-
-/* con if, else e else if*/
 function calculateSalary(role) {
   if (role === 'ceo') {
     return 2200;
