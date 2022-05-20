@@ -21,8 +21,6 @@ function calculateSalary(role) {
   }
 }
 
-
-/* con switch
 function calculateSalary(role) {
   switch (role) {
     case `ceo`:
@@ -38,8 +36,7 @@ function calculateSalary(role) {
     default:
       return 1000;
   }
-} */
-/*so che l'esercizio chiedeva if, else if ed else ma volevo mettere anche questo in pratica*/
+}
 
 
 const ceoSalary = calculateSalary('ceo');
