@@ -1,8 +1,8 @@
 function canPlay() {
-  let personName = 'Paul';
+  const personName = 'Paul';
 
   if (true) {
-    personName = 'George'; // Argh! Voglio che personName sia una variabile di sola lettura
+    personName = 'George'; // ora paul non deve piu preoccuparsi che qualcuno vada all'anagrafe e cambi il suo nome
   }
 
   personName += ' plays football';
