@@ -1,7 +1,5 @@
 function nicknameMap(persons) {
-  return persons.map(element => {
-    return `${element.name}-${element.age}`
-  })
+  return persons.map(element => `${element.name}-${element.age}`)
 }
 
 const persons = [
