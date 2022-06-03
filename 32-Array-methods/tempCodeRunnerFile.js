@@ -1,1 +1,0 @@
- return element.todos[i].done === false
