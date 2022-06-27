@@ -1,0 +1,35 @@
+<html>
+
+<body>
+  <div id="container" style="display: flex; align-items: center;"></div>
+</body>
+
+</html>
+
+<script>
+  let typicode = {};
+  async function fetchAndBuild() {
+    /* fetch and parsing */
+    typicode.response = await fetch("https://jsonplaceholder.typicode.com/todos/4")
+    typicode.body = await typicode.response.json()
+
+    /* div node */
+    divEl = document.getElementById("container")
+
+    /* creating h2 node */
+    let h2El = document.createElement("h2")
+    h2El.textContent = typicode.body.title
+
+    /* creating input node */
+    let checkboxEl = document.createElement("input")
+    checkboxEl.setAttribute("type", "checkbox")
+    if (typicode.body.completed) {
+      checkboxEl.setAttribute("checked", "")
+    }
+
+    /* positioning node */
+    divEl.append(h2El)
+    divEl.append(checkboxEl)
+  }
+  fetchAndBuild()
+</script>
