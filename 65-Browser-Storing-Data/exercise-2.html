@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <div id="container">
+      <button type="button" id="fetch-post">
+        Fetch Post from LocalStorage
+      </button>
+
+      <h2>Post: <span id="post-title"></span></h2>
+    </div>
+  </body>
+</html>
+
+<script>
+  const buttonFetchPost = document.getElementById("fetch-post")
+  buttonFetchPost.addEventListener("click", getDataFromLocalStorage)
+
+  let typicodeBody = {}
+  const spanElInsideH2 = document.getElementById("post-title")
+
+  async function getDataFromLocalStorage() {
+    typicodeBody = JSON.parse(localStorage.getItem("typicodeBodyObject"))
+    spanElInsideH2.textContent = typicodeBody.title
+  }
+</script>
