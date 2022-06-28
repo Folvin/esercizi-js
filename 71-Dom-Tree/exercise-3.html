@@ -1,0 +1,48 @@
+<html>
+
+<body>
+  <div id="container">
+    <form>
+      <div>
+        <label>First Name:</label>
+        <input type="text" class="form-input" id="firstName" value="Mario" />
+      </div>
+      <div>
+        <label>Last Name:</label>
+        <input type="text" class="form-input" id="lastName" value="Rossi" />
+      </div>
+      <div>
+        <label>Age:</label>
+        <input type="number" class="form-input" id="age" value="25" />
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
+
+<script>
+  let allInput = document.querySelectorAll(".form-input")
+  let allLabel = document.querySelectorAll("label")
+  class InputFormObject {
+    constructor(allLabel = [], allInput) {
+      /* il valore di default lo sto mettendo pensado al fatto che ipoteticamente parlando 
+        non sempre il form avrà delle label */
+
+      let lengthOfCollection = allInput.length
+      for (let i = 0; i < lengthOfCollection; i++) {
+
+        let currentLabelIterated = allLabel[i]?.textContent || `input number ${i + 1}:`
+        /* e questo perche non sempre tutti gli input hanno una label*/
+
+        this[currentLabelIterated] = allInput[i].value
+      }
+    }
+  }
+  let myForm = new InputFormObject(allLabel, allInput)
+
+  Object.entries(myForm).forEach(property => {
+    console.log(`${property[0]} ${property[1]}`)
+  })
+
+</script>

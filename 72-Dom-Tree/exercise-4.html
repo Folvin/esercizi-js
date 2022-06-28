@@ -1,0 +1,44 @@
+<html>
+
+<body>
+  <div id="container">
+    <form>
+      <div>
+        <label>First Name:</label>
+        <input type="text" class="form-input" id="firstName" value="Mario" />
+      </div>
+      <div>
+        <label>Last Name:</label>
+        <input type="text" class="form-input" id="lastName" value="Rossi" />
+      </div>
+      <div>
+        <label>Age:</label>
+        <input type="number" class="form-input" id="age" value="25" />
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
+
+<script>
+  let allInput = document.querySelectorAll(".form-input")
+  let allLabel = document.querySelectorAll("label")
+  let formEl = document.querySelector("form")
+
+  class InputFormObject {
+    constructor(allLabel = [], allInput) {
+
+      let lengthOfCollection = allInput.length
+      for (let i = 0; i < lengthOfCollection; i++) {
+
+        let currentLabelIterated = allLabel[i]?.textContent || `input number ${i + 1}:`
+        this[currentLabelIterated] = allInput[i].value
+      }
+    }
+  }
+
+  let person = new InputFormObject(allLabel, allInput)
+  formEl.setAttribute("data-person", JSON.stringify(person))
+  
+</script>
