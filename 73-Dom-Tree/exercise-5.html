@@ -1,0 +1,33 @@
+<html>
+
+<body>
+  <div id="container">
+    <h2>Person's List</h2>
+    <table id="person-table">
+      <tbody></tbody>
+    </table>
+    <button type="button" id="add-row">Add row</button>
+  </div>
+</body>
+
+</html>
+
+<script>
+  const buttonEl = document.getElementById("add-row")
+  buttonEl.addEventListener("click", addRow)
+  function addRow(event) {
+    newTrEl = document.createElement("tr")
+    let newNodes = {}
+    for (let i = 1; i <= 3; i++) {
+      newNodes["newTdEl"+i] = document.createElement("td")
+    }
+    newNodes.newTdEl1.innerHTML = '<input id="first-name" type="text" placeholder="first name" />'
+    newNodes.newTdEl2.innerHTML = '<input id="last-name" type="text" placeholder="last name" />'
+    newNodes.newTdEl3.innerHTML = '<input id="age-name" type="number" placeholder="age" />'
+    Object.values(newNodes).forEach(node => {
+      newTrEl.append(node)
+    })
+    tbodyEl = document.querySelector("tbody")
+    tbodyEl.append(newTrEl)
+  }
+</script>
