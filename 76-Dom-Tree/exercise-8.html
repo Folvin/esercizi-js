@@ -1,0 +1,28 @@
+<html>
+
+<body>
+  <div id="container">
+    <h2>Hero's List</h2>
+    <ul class="hero-list">
+      <li class="hero-list-item">Batman</li>
+      <li class="hero-list-item">Superman</li>
+      <li class="hero-list-item">Spiderman</li>
+      <li class="hero-list-item">Hulk</li>
+      <li class="hero-list-item">Wolverine</li>
+    </ul>
+  </div>
+</body>
+
+</html>
+
+<script>
+  const ulEl = document.querySelector(".hero-list")
+  ulEl.addEventListener("mouseover", (event) => {
+    (event.target === ulEl) ? "" : event.target.style.backgroundColor = "red" 
+    /* ho messo questa regola per evitare che se si sta puntanto la ul senza puntare un li el si evidenziasse tutta la ul */
+  })
+  ulEl.addEventListener("mouseout", (event) => {
+    event.target.style.backgroundColor = "transparent"
+  })
+
+</script>
