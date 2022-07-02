@@ -1,0 +1,76 @@
+<html>
+<style>
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  form input {
+    margin-bottom: 10px;
+  }
+</style>
+
+<body>
+  <div id="container">
+    <h2>Person's Form</h2>
+    <form id="person-form">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+
+</html>
+
+<script>
+  formEl = document.getElementById("person-form")
+  buttonEl = formEl.firstElementChild
+
+  function initForm() {
+    let inputElements = ["firstName", "lastName", "age"]
+    inputElements.forEach((input, index) => {
+      let newInputEl = document.createElement("input")
+      newInputEl.setAttribute("placeholder", input)
+      newInputEl.setAttribute("id", input)
+
+      let newLabelEl = document.createElement("label")
+      newLabelEl.setAttribute("for", input)
+      let letterRemoved = input.replace(/[^A-Z]/g, "")
+      newLabelEl.textContent = input.split(/[A-Z]/).join(` ${letterRemoved}`).toLowerCase()
+
+      buttonEl.before(newLabelEl)
+      buttonEl.before(newInputEl)
+    })
+  }
+  initForm()
+
+  buttonEl.addEventListener("click", createPersonObject)
+
+  function createPersonObject(event) {
+    event.preventDefault()
+    let allInputEl = document.querySelectorAll("input")
+    let person = {}
+
+
+    allInputEl.forEach((input, index) => {
+      if (!input.value) {
+        alert("input must not be empty")
+        input.style.backgroundColor = "red"
+        setTimeout(() => input.style.backgroundColor = "transparent", 2000)
+        return
+      }
+      if (index === 2) {
+        if (input.value.search(/[^0-9]/) >= 0) {
+          alert("age must be a number")
+          input.style.backgroundColor = "red"
+          setTimeout(() => input.style.backgroundColor = "transparent", 2000)
+          return
+        }
+      }
+
+      person[input.getAttribute("id")] = input.value
+    })
+    console.log(person)
+  }
+
+</script>
